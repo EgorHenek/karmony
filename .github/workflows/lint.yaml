@@ -1,0 +1,27 @@
+name: Linters
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: "pip"
+      - name: Install hatch
+        run: |
+          python -m pip install --upgrade pip
+          pip install hatch
+      - name: Run ruff
+        run: hatch fmt --check
+      - name: Run mypy
+        run: hatch run types:check

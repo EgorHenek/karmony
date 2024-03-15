@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "karmony"
+dynamic = ["version"]
+description = 'Library for high-level interactions with web3 apps'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = ["web3"]
+authors = [{ name = "Egor Gluhih", email = "eagluhih@gmail.com" }]
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Framework :: AsyncIO",
+  "Framework :: Hatch",
+  "Framework :: aiohttp",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/EgorHenek/karmony#readme"
+Issues = "https://github.com/EgorHenek/karmony/issues"
+Source = "https://github.com/EgorHenek/karmony"
+
+[tool.hatch.version]
+path = "src/karmony/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=6.5",
+  "pytest",
+  "anyio",
+  "pytest-cov",
+  "aiohttp",
+]
+python = "3.8"
+
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = ["- coverage combine", "coverage report"]
+cov = ["test-cov", "cov-report"]
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.types]
+extra-dependencies = ["mypy>=1.0.0"]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/karmony tests}"
+
+[tool.coverage.run]
+source_pkgs = ["karmony", "tests"]
+branch = true
+parallel = true
+omit = ["src/karmony/__about__.py"]
+
+[tool.coverage.paths]
+karmony = ["src/karmony", "*/karmony/src/karmony"]
+tests = ["tests", "*/karmony/tests"]
+
+[tool.coverage.report]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
+
+[tool.hatch.envs.hatch-static-analysis]
+config-path = "ruff-defaults.toml"
+
+[tool.ruff]
+extend = "ruff-defaults.toml"
+
+[tool.pyright]
+pythonVersion = "3.8"
