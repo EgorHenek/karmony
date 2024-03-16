@@ -31,7 +31,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 
-dependencies = []
+dependencies = ["web3"]
 
 [project.urls]
 Documentation = "https://github.com/EgorHenek/karmony#readme"
@@ -50,6 +50,7 @@ dependencies = [
   "pytest",
   "anyio",
   "pytest-cov",
+  "pytest-dotenv",
   "aiohttp",
 ]
 python = "3.8"
@@ -95,3 +96,5 @@ extend = "ruff-defaults.toml"
 
 [tool.pyright]
 pythonVersion = "3.8"
+[tool.pytest]
+env_files = ".env"

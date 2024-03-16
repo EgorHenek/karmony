@@ -11,3 +11,8 @@ class RepeatableError(Exception):
 class ContractAddressNotFoundError(NonRepeatableError):
     def __init__(self, message="Contract address not found error"):
         super().__init__(message)
+
+
+class MaxAddittionalNonceCounterReachedError(NonRepeatableError):
+    def __init__(self, message="The limit of the maximum additional nonce counter has been reached"):
+        super().__init__(message)
