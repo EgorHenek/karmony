@@ -38,6 +38,9 @@ Documentation = "https://github.com/EgorHenek/karmony#readme"
 Issues = "https://github.com/EgorHenek/karmony/issues"
 Source = "https://github.com/EgorHenek/karmony"
 
+[tool.hatch.env]
+requires = ["hatch-pip-compile"]
+
 [tool.hatch.version]
 path = "src/karmony/__about__.py"
 
@@ -50,6 +53,9 @@ dependencies = [
   "aiohttp",
 ]
 python = "3.8"
+type = "pip-compile"
+pip-compile-hashes = true
+pip-compile-resolver = "uv"
 
 [tool.hatch.envs.default.scripts]
 test = "pytest {args:tests}"
@@ -64,6 +70,9 @@ python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
 extra-dependencies = ["mypy>=1.0.0"]
 [tool.hatch.envs.types.scripts]
 check = "mypy --install-types --non-interactive {args:src/karmony tests}"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/**/*.py"]
 
 [tool.coverage.run]
 source_pkgs = ["karmony", "tests"]

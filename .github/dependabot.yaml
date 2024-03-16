@@ -7,3 +7,7 @@ updates:
     rebase-strategy: auto
     schedule:
       interval: weekly
+  - directory: /
+    package-ecosystem: pip
+    schedule:
+      interval: monthly
