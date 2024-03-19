@@ -1,15 +1,11 @@
 import os
 
 import pytest
-from eth_account.account import Account, LocalAccount
+from eth_account.account import Account
+from eth_account.signers.local import LocalAccount
 
 from karmony.client import EvmClient
-from karmony.networks import BaseNetwork, Sepolia
-
-
-@pytest.fixture
-def network() -> BaseNetwork:
-    return Sepolia()
+from karmony.networks import BSCTestnet, PolygonMumbai, Sepolia
 
 
 @pytest.fixture
@@ -27,7 +23,15 @@ def account(private_key: str) -> LocalAccount:
 
 
 @pytest.fixture
-def sepolia_client(
-    network: BaseNetwork,
-) -> EvmClient:
-    return EvmClient(network)
+def sepolia_client() -> EvmClient:
+    return EvmClient(network=Sepolia())
+
+
+@pytest.fixture
+def bsc_testnet_client() -> EvmClient:
+    return EvmClient(network=BSCTestnet())
+
+
+@pytest.fixture
+def polygon_mumbai_client() -> EvmClient:
+    return EvmClient(network=PolygonMumbai())

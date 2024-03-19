@@ -1,20 +1,26 @@
+from typing import TYPE_CHECKING
+
 import pytest
-from eth_account.account import LocalAccount
+from eth_account.signers.local import LocalAccount
 from web3.types import Wei
 
-from karmony.client import EvmClient
+if TYPE_CHECKING:
+    from karmony.client import EvmClient
 
 
+@pytest.mark.parametrize("network", ["sepolia", "bsc_testnet", "polygon_mumbai"])
 class TestEvmClient:
     @pytest.mark.anyio
     @pytest.mark.slow
     async def test_send_transaction(
         self,
-        sepolia_client: EvmClient,
         account: LocalAccount,
+        request: pytest.FixtureRequest,
+        network: str,
     ) -> None:
-        await sepolia_client.transfer(
+        client: EvmClient = request.getfixturevalue(f"{network}_client")
+        assert await client.transfer(
             account,
-            "0x0000000000000000000000000000000000000000",
+            "0x3c77984a967702Efcd9A80B230c20e805c02F751",
             Wei(0),
         )
