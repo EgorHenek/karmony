@@ -114,3 +114,13 @@ class Optimism(BaseNetwork):
 class OptimismSepolia(BaseNetwork):
     def __init__(self, rpc="https://sepolia.optimism.io") -> None:
         super().__init__(rpc, 11155420)
+
+
+class Linea(BaseNetwork):
+    def __init__(self, rpc="https://rpc.linea.build") -> None:
+        super().__init__(rpc, 59144)
+
+
+class LineaTestnet(BaseNetwork):
+    def __init__(self, rpc="https://rpc.goerli.linea.build") -> None:
+        super().__init__(rpc, 59140)

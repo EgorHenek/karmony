@@ -20,6 +20,7 @@ if TYPE_CHECKING:
         "base_sepolia",
         "zora_sepolia",
         "optimism_sepolia",
+        "linea_testnet",
     ],
 )
 class TestEvmClient:
