@@ -69,3 +69,18 @@ class ZkSyncSepolia(BaseNetwork):
 class ZkSync(BaseNetwork):
     def __init__(self, rpc: str = "https://mainnet.era.zksync.io") -> None:
         super().__init__(rpc, 324)
+
+
+class ArbitrumSepolia(BaseNetwork):
+    def __init__(self, rpc="https://sepolia-rollup.arbitrum.io/rpc") -> None:
+        super().__init__(rpc, 421614)
+
+
+class Arbitrum(BaseNetwork):
+    def __init__(self, rpc="https://arb1.arbitrum.io/rpc") -> None:
+        super().__init__(rpc, 42161)
+
+
+class ArbitrumNova(BaseNetwork):
+    def __init__(self, rpc="https://nova.arbitrum.io/rpc") -> None:
+        super().__init__(rpc, 42170)
