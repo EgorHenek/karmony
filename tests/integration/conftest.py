@@ -11,6 +11,7 @@ from karmony.networks import (
     BaseSepolia,
     BSCTestnet,
     LineaTestnet,
+    MantaSepolia,
     OptimismSepolia,
     PolygonMumbai,
     ScrollSepolia,
@@ -87,3 +88,8 @@ def linea_testnet_client() -> EvmClient:
 @pytest.fixture
 def avalanche_fuji_client() -> EvmClient:
     return EvmClient(network=AvalancheFuji())
+
+
+@pytest.fixture
+def manta_sepolia_client() -> EvmClient:
+    return EvmClient(network=MantaSepolia())

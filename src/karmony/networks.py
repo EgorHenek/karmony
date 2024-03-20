@@ -134,3 +134,13 @@ class Avalanche(BaseNetwork):
 class AvalancheFuji(BaseNetwork):
     def __init__(self, rpc="https://api.avax-test.network/ext/bc/C/rpc") -> None:
         super().__init__(rpc, 43113)
+
+
+class Manta(BaseNetwork):
+    def __init__(self, rpc="https://pacific-rpc.manta.network/http") -> None:
+        super().__init__(rpc, 169)
+
+
+class MantaSepolia(BaseNetwork):
+    def __init__(self, rpc="https://pacific-rpc.sepolia-testnet.manta.network/http") -> None:
+        super().__init__(rpc, 3441006)

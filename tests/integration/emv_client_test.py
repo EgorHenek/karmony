@@ -22,6 +22,7 @@ if TYPE_CHECKING:
         "optimism_sepolia",
         "linea_testnet",
         "avalanche_fuji",
+        "manta_sepolia",
     ],
 )
 class TestEvmClient:
