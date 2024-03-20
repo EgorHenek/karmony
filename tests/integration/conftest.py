@@ -7,6 +7,7 @@ from eth_account.signers.local import LocalAccount
 from karmony.client import EvmClient
 from karmony.networks import (
     ArbitrumSepolia,
+    AvalancheFuji,
     BaseSepolia,
     BSCTestnet,
     LineaTestnet,
@@ -81,3 +82,8 @@ def optimism_sepolia_client() -> EvmClient:
 @pytest.fixture
 def linea_testnet_client() -> EvmClient:
     return EvmClient(network=LineaTestnet())
+
+
+@pytest.fixture
+def avalanche_fuji_client() -> EvmClient:
+    return EvmClient(network=AvalancheFuji())

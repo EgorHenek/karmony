@@ -124,3 +124,13 @@ class Linea(BaseNetwork):
 class LineaTestnet(BaseNetwork):
     def __init__(self, rpc="https://rpc.goerli.linea.build") -> None:
         super().__init__(rpc, 59140)
+
+
+class Avalanche(BaseNetwork):
+    def __init__(self, rpc="https://api.avax.network/ext/bc/C/rpc") -> None:
+        super().__init__(rpc, 43114)
+
+
+class AvalancheFuji(BaseNetwork):
+    def __init__(self, rpc="https://api.avax-test.network/ext/bc/C/rpc") -> None:
+        super().__init__(rpc, 43113)
