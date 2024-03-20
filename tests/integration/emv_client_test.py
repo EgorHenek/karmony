@@ -19,6 +19,7 @@ if TYPE_CHECKING:
         "arbitrum_sepolia",
         "base_sepolia",
         "zora_sepolia",
+        "optimism_sepolia",
     ],
 )
 class TestEvmClient:

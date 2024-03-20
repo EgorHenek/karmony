@@ -9,6 +9,7 @@ from karmony.networks import (
     ArbitrumSepolia,
     BaseSepolia,
     BSCTestnet,
+    OptimismSepolia,
     PolygonMumbai,
     ScrollSepolia,
     Sepolia,
@@ -69,3 +70,8 @@ def base_sepolia_client() -> EvmClient:
 @pytest.fixture
 def zora_sepolia_client() -> EvmClient:
     return EvmClient(network=ZoraSepolia())
+
+
+@pytest.fixture
+def optimism_sepolia_client() -> EvmClient:
+    return EvmClient(network=OptimismSepolia())

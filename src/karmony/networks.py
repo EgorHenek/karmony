@@ -104,3 +104,13 @@ class Zora(BaseNetwork):
 class ZoraSepolia(BaseNetwork):
     def __init__(self, rpc="https://sepolia.rpc.zora.energy") -> None:
         super().__init__(rpc, 999999999, False)
+
+
+class Optimism(BaseNetwork):
+    def __init__(self, rpc="https://mainnet.optimism.io") -> None:
+        super().__init__(rpc, 10)
+
+
+class OptimismSepolia(BaseNetwork):
+    def __init__(self, rpc="https://sepolia.optimism.io") -> None:
+        super().__init__(rpc, 11155420)
