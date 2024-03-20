@@ -59,3 +59,13 @@ class ScrollSepolia(BaseNetwork):
 class Scroll(BaseNetwork):
     def __init__(self, rpc: str = "https://rpc.scroll.io") -> None:
         super().__init__(rpc, 534352, False)
+
+
+class ZkSyncSepolia(BaseNetwork):
+    def __init__(self, rpc: str = "https://sepolia.era.zksync.dev") -> None:
+        super().__init__(rpc, 300)
+
+
+class ZkSync(BaseNetwork):
+    def __init__(self, rpc: str = "https://mainnet.era.zksync.io") -> None:
+        super().__init__(rpc, 324)

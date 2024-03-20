@@ -49,7 +49,7 @@ class EvmClient:
             "from": signer.address,
             "to": to,
             "value": value,
-            "gas": 21000,
+            "gas": 0,
             "nonce": nonce,
         }
 
@@ -70,6 +70,7 @@ class EvmClient:
                 gas_price = await self._client.eth.gas_price
             tx["gasPrice"] = gas_price
 
+        tx["gas"] = await self._client.eth.estimate_gas(tx)
         while max_addittional_nonce_count > 0:
             try:
                 return await self._send_transaction(tx, signer)

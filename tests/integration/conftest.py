@@ -5,7 +5,7 @@ from eth_account.account import Account
 from eth_account.signers.local import LocalAccount
 
 from karmony.client import EvmClient
-from karmony.networks import BSCTestnet, PolygonMumbai, ScrollSepolia, Sepolia
+from karmony.networks import BSCTestnet, PolygonMumbai, ScrollSepolia, Sepolia, ZkSyncSepolia
 
 
 @pytest.fixture
@@ -40,3 +40,8 @@ def polygon_mumbai_client() -> EvmClient:
 @pytest.fixture
 def scroll_sepolia_client() -> EvmClient:
     return EvmClient(network=ScrollSepolia())
+
+
+@pytest.fixture
+def zksync_sepolia_client() -> EvmClient:
+    return EvmClient(network=ZkSyncSepolia())
