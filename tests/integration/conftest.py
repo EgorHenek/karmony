@@ -5,7 +5,15 @@ from eth_account.account import Account
 from eth_account.signers.local import LocalAccount
 
 from karmony.client import EvmClient
-from karmony.networks import ArbitrumSepolia, BSCTestnet, PolygonMumbai, ScrollSepolia, Sepolia, ZkSyncSepolia
+from karmony.networks import (
+    ArbitrumSepolia,
+    BSCTestnet,
+    BaseSepolia,
+    PolygonMumbai,
+    ScrollSepolia,
+    Sepolia,
+    ZkSyncSepolia,
+)
 
 
 @pytest.fixture
@@ -50,3 +58,8 @@ def zksync_sepolia_client() -> EvmClient:
 @pytest.fixture
 def arbitrum_sepolia_client() -> EvmClient:
     return EvmClient(network=ArbitrumSepolia())
+
+
+@pytest.fixture
+def base_sepolia_client() -> EvmClient:
+    return EvmClient(network=BaseSepolia())

@@ -17,6 +17,7 @@ if TYPE_CHECKING:
         "scroll_sepolia",
         "zksync_sepolia",
         "arbitrum_sepolia",
+        "base_sepolia",
     ],
 )
 class TestEvmClient:

@@ -84,3 +84,13 @@ class Arbitrum(BaseNetwork):
 class ArbitrumNova(BaseNetwork):
     def __init__(self, rpc="https://nova.arbitrum.io/rpc") -> None:
         super().__init__(rpc, 42170)
+
+
+class Base(BaseNetwork):
+    def __init__(self, rpc="https://mainnet.base.org") -> None:
+        super().__init__(rpc, 8453)
+
+
+class BaseSepolia(BaseNetwork):
+    def __init__(self, rpc="https://sepolia.base.org") -> None:
+        super().__init__(rpc, 84532)
