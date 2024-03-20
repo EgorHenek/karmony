@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from karmony.client import EvmClient
 
 
-@pytest.mark.parametrize("network", ["sepolia", "bsc_testnet", "polygon_mumbai"])
+@pytest.mark.parametrize("network", ["sepolia", "bsc_testnet", "polygon_mumbai", "scroll_sepolia"])
 class TestEvmClient:
     @pytest.mark.anyio
     @pytest.mark.slow

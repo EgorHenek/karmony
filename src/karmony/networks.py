@@ -49,3 +49,13 @@ class PolygonMumbai(BaseNetwork):
 class Polygon(BaseNetwork):
     def __init__(self, rpc: str = "https://polygon-rpc.com") -> None:
         super().__init__(rpc, 137)
+
+
+class ScrollSepolia(BaseNetwork):
+    def __init__(self, rpc: str = "https://sepolia-rpc.scroll.io") -> None:
+        super().__init__(rpc, 534351, False)
+
+
+class Scroll(BaseNetwork):
+    def __init__(self, rpc: str = "https://rpc.scroll.io") -> None:
+        super().__init__(rpc, 534352, False)
